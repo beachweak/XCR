@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Notepad",
+        "description": "Take notes.",
+        "html": "widgets/notepad/notepad.html",
+        "css": "widgets/notepad/notepad.css",
+        "js": "widgets/notepad/notepad.js"
+    },
+    {
+        "name": "Canvas",
+        "description": "Drawing tool.",
+        "html": "widgets/sketchpad/sketchpad.html",
+        "css": "widgets/sketchpad/sketchpad.css",
+        "js": "widgets/sketchpad/sketchpad.js"
+    },
+    {
+        "name": "Todo List",
+        "description": "Add todo items.",
+        "html": "widgets/todo/todo.html",
+        "css": "widgets/todo/todo.css",
+        "js": "widgets/todo/todo.js"
+    },
+    {
+        "name": "Calculator",
+        "description": "A basic calculator.",
+        "html": "widgets/calculator/calculator.html",
+        "css": "widgets/calculator/calculator.css",
+        "js": "widgets/calculator/calculator.js"
+    },
+    {
+        "name": "Search",
+        "description": "Search via Google or Wikipedia.",
+        "html": "widgets/search/search.html",
+        "css": "widgets/search/search.css",
+        "js": "widgets/search/search.js"
+    }
+]

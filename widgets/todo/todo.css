@@ -1,0 +1,129 @@
+.rounded-square {
+    width: 500px;
+    height: 400px;
+    background-color: #151515;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 50px 30px 50px;
+    overflow: hidden;
+}
+
+.title-bar {
+    background-color: #000000;
+    width: calc(105% - 20px); /* Adjust the width calculation */
+    height: 40px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    z-index: 10;
+}
+
+.todo-widget-content {
+    flex: 1;
+    padding: 5px;
+}
+
+.title-text {
+    color: #F3FFFA;
+    margin: 5px;
+}
+
+#myInput {
+    display: flex;
+    width: 390px;
+}
+
+#inputContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    
+}
+
+.addBtn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #F3FFFA;
+    color: #151515;
+    border-radius: 15px;
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0px;
+    color: white;
+}
+
+#myUL li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.taskText {
+    white-space: nowrap;
+    padding-right: 3ch;
+}
+
+.myUL-checkbox {
+    margin-right: 10px;
+}
+
+.close {
+    cursor: pointer;
+    margin-left: auto;
+    float: right;
+}
+
+.open-button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1c1b1b;
+    color: #F3FFFA;
+    cursor: pointer;
+    justify-content: right;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #F3FFFA;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+input[type="text"]::placeholder {
+    color: #6c6c6c;
+    opacity: 0.7;
+}
+
+.add-btn-2 {
+    padding-top: 8px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-left: 5px;
+}
+
+.add-btn-2:hover {
+    opacity: 0.7;
+}
+

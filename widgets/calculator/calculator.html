@@ -1,0 +1,30 @@
+<div class="rounded-square">
+  <div class="title-bar">
+    <div class="title-text">Calculator</div>
+    <button class="open-button clearButton" onclick="clearCalculator(this)">Clear</button>
+  </div>
+  <div class="widget-content">
+      <input class="output" readonly style="width: 235px; height: 30px">
+      </br>
+      <button onclick="clickNumber(1, this)">1</button>
+      <button onclick="clickNumber(2, this)">2</button>
+      <button onclick="clickNumber(3, this)">3</button>
+      <button onclick="clickOperation('+', this)">+</button>
+      </br>
+      <button onclick="clickNumber(4, this)">4</button>
+      <button onclick="clickNumber(5, this)">5</button>
+      <button onclick="clickNumber(6, this)">6</button>
+      <button onclick="clickOperation('-', this)">-</button>
+      </br>
+      <button onclick="clickNumber(7, this)">7</button>
+      <button onclick="clickNumber(8, this)">8</button>
+      <button onclick="clickNumber(9, this)">9</button>
+      <button onclick="clickOperation('*', this)">*</button>
+      </br>
+      <div class="bottom-row">
+          <button onclick="clickNumber(0, this)">0</button>
+          <button onclick="calculate(this)">=</button>
+          <button onclick="clickOperation('/', this)">/</button>
+      </div>
+  </div>
+</div>

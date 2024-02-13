@@ -1,0 +1,81 @@
+.rounded-square {
+    width: 500px;
+    height: 400px;
+    background-color: #151515;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 50px 30px 50px;
+    overflow: hidden;
+}
+
+.title-bar {
+    background-color: #000000;
+    width: calc(105% - 20px); /* Adjust the width calculation */
+    height: 40px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    z-index: 10;
+}
+
+.title-text {
+    color: #F3FFFA;
+    margin: 5px;
+}
+
+.widget-content {
+    flex: 1;
+    padding: 5px;
+}
+
+.notepad {
+    width: 470px;
+    height: 340px;
+    font-family: 'Space Grotesk', sans-serif;
+    border-radius: 6px;
+    resize: none;
+    border: 1px solid #ffffff;
+    outline: none;
+    color: #F3FFFA;
+    background-color: #151515;
+    margin-left: 6px;
+    margin-top: 3px;
+}
+
+.canvas-style {
+    width: 470px;
+    height: 340px;
+    margin-left: 10px;
+    margin-top: 3px;
+    border: 1px solid #000000;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+}
+
+.add-btn {
+    padding: 8px 15px;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.open-button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1c1b1b;
+    color: #F3FFFA;
+    cursor: pointer;
+    justify-content: right;
+}

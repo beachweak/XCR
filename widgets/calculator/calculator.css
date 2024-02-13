@@ -1,0 +1,87 @@
+.widget-content {
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: transparent;
+}
+
+.widget-content button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 16px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10%;
+    background-color: #232323;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: all 0.3s;
+}
+
+.widget-content .output {
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5%;
+    background-color: transparent;
+}
+
+.widget-content button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bottom-row {
+    text-align: right;
+    margin-right: 118px;
+}
+
+.rounded-square {
+    width: 500px;
+    height: 400px;
+    background-color: #151515;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 50px 30px 50px;
+    overflow: hidden;
+}
+
+.title-bar {
+    background-color: #000000;
+    width: calc(105% - 20px); /* Adjust the width calculation */
+    height: 40px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    z-index: 10;
+}
+
+.widget-content {
+    flex: 1;
+    padding: 5px;
+}
+
+.title-text {
+    color: #F3FFFA;
+    margin: 5px;
+}
+
+.open-button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1c1b1b;
+    color: #F3FFFA;
+    cursor: pointer;
+    justify-content: right;
+}

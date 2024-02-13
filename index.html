@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCR</title>
+    <link rel="stylesheet" href="css/xcr.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+    <div id="titlebar">
+        <img src="images/xcr.png" class="titlebar-icon">
+        <div id="title">XCR</div>
+        <div id="controls">
+            <div class="control" id="minimize">&#x2500;</div>
+            <div class="control" id="maximize">&#x2750;</div>
+            <div class="control" id="close">&#x2715;</div>
+          </div>
+      </div>
+
+      <div id="banner">
+        <img src="images/xcr.png" alt="Logo" id="logo">
+        <div id="center-content">
+            <span id="time"></span>
+            <span id="date"></span>
+        </div>
+        <div id="profile">
+            <span id="name">User</span>
+            <div id="profile-picture" class="profile-picture"></div>
+        </div>
+    </div>       
+
+    <div id="content">
+        <div class="flex-container">
+            <div class="button-container">
+                <button id="addWidgetButton"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div id="widgetContainer"></div>
+        </div>
+    </div>
+
+    <div id="navigation">
+        <a href="#" class="button" id="indexButton"><i class="fa-solid fa-house-chimney"></i></a>        
+        <a href="#" class="button" id="appsButton"><i class="fa-solid fa-satellite-dish"></i></a>      
+        <a href="#" class="button" id="profileButton"><i class="fa-solid fa-user"></i></a>              
+    </div>
+
+    <script src="js/renderer.js"></script>
+    <script src="js/loadPages.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/widgetadd.js"></script>
+    <script src="js/dummy.js"></script>
+    <script src="js/profileLoad.js"></script>
+</body>
+</html>
