@@ -22,5 +22,5 @@ I encourage you to clone XCR's repository and install Electron into it. This all
 
 For a user's copy, please download one of the three binaries [here](https://github.com/beachweak/XCR/releases).
 
-Linux support will be available as of v1.1.0.
+Linux support will be available as of v1.2.0.
 
