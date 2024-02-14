@@ -2,7 +2,13 @@ const fs = require('fs');
 const path = require('path');
 
 function getProfilePath() {
-    return path.join(__dirname, 'profileInfo.json');
+    const appDataPath = path.join(os.homedir(), '.XCR');
+    
+    if (!fs.existsSync(appDataPath)) {
+        fs.mkdirSync(appDataPath);
+    }
+    
+    return path.join(appDataPath, 'profileInfo.json');
 }
 
 function loadProfile() {
@@ -14,8 +20,8 @@ function loadProfile() {
         }
         updateProfileStyle(profile);
         const imageUrl = profile.image || 'icon.png';
-        updateProfilePicture('profile-picture', imageUrl); // Update small profile picture
-        updateProfilePicture('largeProfilePicture', imageUrl); // Update large profile picture
+        updateProfilePicture('profile-picture', imageUrl);
+        updateProfilePicture('largeProfilePicture', imageUrl);
     }
 }
 
@@ -92,7 +98,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 fs.writeFileSync(getProfilePath(), JSON.stringify(currentProfile));
                 loadProfile();
                 updateProfilePicture('largeProfilePicture', newImage);
-                updateProfilePicture('profile-picture', newImage); // Update small profile picture
+                updateProfilePicture('profile-picture', newImage);
             });
         });
 
@@ -124,7 +130,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     </div>
         
                     <div style="flex: 1;">
-                        <!-- Placeholder for future settings or for symmetry -->
                     </div>
                 </div>
             `;

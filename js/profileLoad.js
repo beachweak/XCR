@@ -1,32 +1,50 @@
+const os = require('os');
+
 function getProfilePath() {
-    return path.join(__dirname, 'profileInfo.json');
+    const appDataPath = path.join(os.homedir(), '.yourAppName');
+    if (!fs.existsSync(appDataPath)) {
+        fs.mkdirSync(appDataPath, { recursive: true });
+    }
+    return path.join(appDataPath, 'profileInfo.json');
+}
+
+function ensureProfileExists() {
+    const profilePath = getProfilePath();
+    if (!fs.existsSync(profilePath)) {
+        const defaultProfile = {
+            name: "User",
+            image: "images/icon.png",
+            backgroundColor: "#ffffff",
+            backgroundImage: "",
+            navbarColor: "",
+            bannerColor: ""
+        };
+        fs.writeFileSync(profilePath, JSON.stringify(defaultProfile, null, 2), 'utf8');
+    }
 }
 
 function loadAndApplyProfileSettings() {
+    ensureProfileExists();
     const profilePath = getProfilePath();
-    if (fs.existsSync(profilePath)) {
-        const profile = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
-        applyProfileSettings(profile);
-    }
+    const profile = JSON.parse(fs.readFileSync(profilePath, 'utf8'));
+    applyProfileSettings(profile);
 }
 
 function applyProfileSettings(profile) {
     const bodyStyle = document.body.style;
     if (profile.backgroundColor) bodyStyle.backgroundColor = profile.backgroundColor;
     if (profile.backgroundImage) bodyStyle.backgroundImage = `url(${profile.backgroundImage})`;
-    
+
     const banner = document.getElementById('banner');
     const navbar = document.getElementById('navbar');
     if (banner && profile.bannerColor) banner.style.backgroundColor = profile.bannerColor;
     if (navbar && profile.navbarColor) navbar.style.backgroundColor = profile.navbarColor;
 
-    // Handle profile picture
     const profilePictureElement = document.getElementById('profile-picture');
     if (profilePictureElement && profile.image) {
         profilePictureElement.style.backgroundImage = `url(${profile.image})`;
     }
 
-    // Handle profile name
     const nameElement = document.getElementById('name');
     if (nameElement) {
         nameElement.textContent = profile.name || 'User';

@@ -1,7 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const widgetConfigPath = path.join(__dirname, 'widgetConfigs.json');
+// Function to determine the path for the .XCR folder.
+function getAppDataPath() {
+    const appDataPath = path.join(os.homedir(), '.XCR');
+    if (!fs.existsSync(appDataPath)) {
+        fs.mkdirSync(appDataPath, { recursive: true });
+    }
+    return appDataPath;
+}
+
+// Adjusted widgetConfigPath to point to the .XCR directory.
+const widgetConfigPath = path.join(getAppDataPath(), 'widgetConfigs.json');
 
 document.addEventListener('DOMContentLoaded', function () {
     const addWidgetButton = document.getElementById('addWidgetButton');
@@ -30,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createWidgetSelectionGui() {
+        // widgetManifestPath remains unchanged as specified.
         const widgetManifestPath = path.join(__dirname, 'widgetManifest.json');
         const widgetManifest = JSON.parse(fs.readFileSync(widgetManifestPath, 'utf8'));
         const selectionGui = document.createElement('div');
@@ -58,9 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function positionAndCenterWidgetSelectionGui() {
         const widgetSelectionGui = document.getElementById('widgetSelectionGui');
         widgetSelectionGui.style.position = 'fixed';
-        // do not change this from fixed. whatever you do.
-        // from a 3am coding spree, setting this from anything other than fixed causes the gui to break entirely
-        // i do not know why. i do not care why. but setting the style to fixed makes it work. keep this in mind
         widgetSelectionGui.style.top = '42%';
         widgetSelectionGui.style.left = '50%';
         widgetSelectionGui.style.transform = 'translate(-50%, -50%)';
@@ -69,8 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function saveWidgetConfig(widget) {
         let widgetConfigs = [];
 
-        if (fs.existsSync(widgetConfigPath)) {
+        try {
             widgetConfigs = JSON.parse(fs.readFileSync(widgetConfigPath, 'utf8'));
+        } catch (e) {
+            widgetConfigs = [];
         }
 
         if (!widget.id) {
@@ -79,27 +89,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         widgetConfigs.push(widget);
 
-        fs.writeFileSync(widgetConfigPath, JSON.stringify(widgetConfigs));
+        fs.writeFileSync(widgetConfigPath, JSON.stringify(widgetConfigs, null, 2));
     }
 
     function removeWidgetConfig(widgetId) {
         let widgetConfigs = [];
 
         try {
-            if (fs.existsSync(widgetConfigPath)) {
-                widgetConfigs = JSON.parse(fs.readFileSync(widgetConfigPath, 'utf8'));
+            widgetConfigs = JSON.parse(fs.readFileSync(widgetConfigPath, 'utf8'));
 
-                const index = widgetConfigs.findIndex(w => w.id === widgetId);
+            const index = widgetConfigs.findIndex(w => w.id === widgetId);
 
-                if (index !== -1) {
-                    widgetConfigs.splice(index, 1);
-                    fs.writeFileSync(widgetConfigPath, JSON.stringify(widgetConfigs));
-                    console.log(`Widget with ID ${widgetId} has been removed.`);
-                } else {
-                    console.log(`Widget with ID ${widgetId} was not found.`);
-                }
+            if (index !== -1) {
+                widgetConfigs.splice(index, 1);
+                fs.writeFileSync(widgetConfigPath, JSON.stringify(widgetConfigs, null, 2));
+                console.log(`Widget with ID ${widgetId} has been removed.`);
             } else {
-                console.log("widgetConfigs.json does not exist.");
+                console.log(`Widget with ID ${widgetId} was not found.`);
             }
         } catch (error) {
             console.error("An error occurred while trying to remove a widget config:", error);
@@ -118,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         closeBtn.appendChild(icon);
         widgetEl.appendChild(closeBtn);
 
+        // Ensure the paths to widget files are correct given their locations.
         const widgetHtmlContent = fs.readFileSync(path.join(__dirname, widget.html), 'utf8');
         widgetEl.insertAdjacentHTML('beforeend', widgetHtmlContent);
 
@@ -128,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         widgetContainer.appendChild(widgetEl);
 
+        // Similar to HTML and CSS, ensure the JS file path is correct.
         const widgetScriptContent = fs.readFileSync(path.join(__dirname, widget.js), 'utf8');
         const scriptTag = document.createElement('script');
         scriptTag.textContent = widgetScriptContent;
